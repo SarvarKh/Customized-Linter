@@ -1,2 +1,8 @@
 Targets:
-1. Check if 
+Create JS linter
+
+Steps to achieve the goal:
+1. Create file reader;
+2. Create code scanner;
+3. Create error reporter;
+
