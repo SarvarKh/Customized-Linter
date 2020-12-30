@@ -4,6 +4,6 @@ class Reader
 
   def initialize(file)
     arr_file = File.foreach(file).to_a
-    p arr_file
+    puts arr_file
   end
 end
