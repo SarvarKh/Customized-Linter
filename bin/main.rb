@@ -3,7 +3,6 @@ require_relative '../lib/js-linter.rb'
 class JSLinter
   def initialize(file)
     puts 'Start JS Linter initializing... '
-    p file
     js_linter_controller = JSLinterControl.new(file)
   end
 end
