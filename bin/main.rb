@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../lib/js_linter'
 # top-level class documentation
 class JSLinter

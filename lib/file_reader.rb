@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # top-level class documentation
 class Reader
   attr_reader :arr_file

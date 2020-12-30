@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative './file_reader'
 require_relative './checker'
 # top-level class documentation
