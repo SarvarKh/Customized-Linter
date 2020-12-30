@@ -3,8 +3,7 @@ class Reader
   attr_reader :arr_file
 
   def initialize(file)
-    @file = file
-    file = File.open(file)
-    @arr_file = file.to_a
+    arr_file = File.foreach(file).to_a
+    p arr_file
   end
 end

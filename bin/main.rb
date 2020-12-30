@@ -3,7 +3,7 @@ require_relative '../lib/js_linter'
 class JSLinter
   attr_reader :js_linter_controller
   def initialize(file)
-    puts 'Start JS Linter initializing... '
+    puts 'JS_Linter is being initialized... '
     @js_linter_controller = JSLinterControl.new(file)
   end
 end
