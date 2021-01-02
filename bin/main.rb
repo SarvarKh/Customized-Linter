@@ -14,7 +14,15 @@ class JSLinter
   def checker_indentation
     @arr_file.each_with_index do |str, index|
       if str[0,1].match(/\S/) && str.match('  ')
-        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Redundant space in a string]."
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Redundant space]."
+      end
+    end
+  end
+
+  def checker_parentheses_function
+    @arr_file.each_with_index do |str, index|
+      if str.match(/function/) && !str.match?(/()/)
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing curly braces]."
       end
     end
   end
@@ -22,6 +30,7 @@ class JSLinter
   # process the linter test
   def process
     checker_indentation
+    checker_parentheses_function
   end
 end
 
