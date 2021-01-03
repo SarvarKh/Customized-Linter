@@ -21,8 +21,8 @@ class JSLinter
 
   def checker_parentheses_function
     @arr_file.each_with_index do |str, index|
-      if str.match(/function/) && !str.match?(/()/)
-        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing curly braces]."
+      if str.match(/function/) && !(str.match(/[()]/))
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing parentheses]."
       end
     end
   end
