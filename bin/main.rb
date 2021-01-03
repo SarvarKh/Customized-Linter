@@ -9,7 +9,7 @@ class JSLinter
     @arr_file
   end
 
-  # check for errors
+  # check for errors in function
   def checker_indentation
     @arr_file.each_with_index do |str, index|
       if str[0,1].match(/\S/) && str.match('  ')
@@ -60,12 +60,12 @@ class JSLinter
 
   # process the linter test
   def process
-    # checker_indentation
-    # checker_indentation_end
+    checker_indentation
+    checker_indentation_end
     checker_function_name
-    # checker_parentheses_function
-    # checker_curlybraces_function
-    # checker_close_curlybrace_function
+    checker_parentheses_function
+    checker_open_curlybrace_function
+    checker_close_curlybrace_function
   end
 end
 
