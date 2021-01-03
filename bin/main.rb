@@ -26,6 +26,14 @@ class JSLinter
     end
   end
 
+  def checker_function_name
+    @arr_file.each_with_index do |str, index|
+      if str.match(/function/) && !!(str.match(/[_]/))
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Style Error: Prefer CamelCase over snake_case in function declaration]."
+      end
+    end
+  end
+
   def checker_parentheses_function
     @arr_file.each_with_index do |str, index|
       if str.match(/function/) && !(str.match(/[()]/))
