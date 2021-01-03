@@ -10,11 +10,18 @@ class JSLinter
   end
 
   # check for errors
-  # check for extra space in the code in one line
   def checker_indentation
     @arr_file.each_with_index do |str, index|
       if str[0,1].match(/\S/) && str.match('  ')
         puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Redundant space]."
+      end
+    end
+  end
+
+  def checker_indentation_end
+    @arr_file.each_with_index do |str, index|
+      if str[str.length - 2] == ' '
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Extra space at the end of the line]."
       end
     end
   end
@@ -46,9 +53,11 @@ class JSLinter
   # process the linter test
   def process
     # checker_indentation
+    # checker_indentation_end
+    checker_function_name
     # checker_parentheses_function
     # checker_curlybraces_function
-    checker_close_curlybrace_function
+    # checker_close_curlybrace_function
   end
 end
 
