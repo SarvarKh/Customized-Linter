@@ -2,7 +2,7 @@ class JSLinter
   def initialize(file)
     @file = file
     puts 'JS_Linter is being initialized... '
-    @arr_file = File.foreach(file).to_a
+    @arr_file = File.foreach(@file).to_a
   end
 
   def read_file
