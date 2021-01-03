@@ -27,10 +27,30 @@ class JSLinter
     end
   end
 
+  def checker_open_curlybrace_function
+    @arr_file.each_with_index do |str, index|
+      if str.match(/function/) && !(str.match(/[{]/))
+        puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing opening curly brace]."
+      end
+    end
+  end
+
+  def checker_close_curlybrace_function
+    @arr_file.each_with_index do |str, index|
+      if str.match(/function/)
+        if !(@arr_file.any? {|n| n.match?(/[}]/)})
+          puts "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing closing curly brace for opened curly brace]."
+        end
+      end
+    end
+  end
+
   # process the linter test
   def process
-    checker_indentation
-    checker_parentheses_function
+    # checker_indentation
+    # checker_parentheses_function
+    # checker_curlybraces_function
+    checker_close_curlybrace_function
   end
 end
 
