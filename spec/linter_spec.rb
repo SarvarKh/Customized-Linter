@@ -1,8 +1,12 @@
 require_relative '../bin/main.rb'
 
 describe JSLinter do
-  my_js_linter = JSLinter.new(file)
+  source_file = '../samples/javascript_test_01.js'
+  my_jslinter = JSLinter.new(source_file)
   
-  describe '#' do
-    it
+  describe 'read_file' do
+    it 'returns source_file content ' do
+      expect(my_jslinter.read_file).to eql(["function my_function   \n", "  console.log(\"some random text, bla bla bla\");\n", "  return p1 * p2; \n", "}\n"])
+    end
+  end
 end
