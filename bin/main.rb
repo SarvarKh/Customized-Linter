@@ -8,10 +8,6 @@ class JSLinter
     @arr_file = File.foreach(@file).to_a
   end
 
-  def read_file
-    @arr_file
-  end
-
   # check for errors in function
   def checker_indentation
     @arr_file.each_with_index do |str, index|
