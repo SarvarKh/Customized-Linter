@@ -6,8 +6,7 @@ class JSLinter
   def initialize(file)
     @file = file
     puts 'JS_Linter is being initialized... '
-    @arr_file = File.foreach(@file).to_a
-    @error_scanner = ErrorScanner.new(@arr_file)
+    @error_scanner = ErrorScanner.new(@file)
   end
   
   # process the linter test

@@ -1,6 +1,7 @@
 class ErrorScanner
   def initialize(file)
-    @arr_file = file
+    @file = file
+    @arr_file = File.foreach(@file).to_a
   end
 
   def checker_indentation
