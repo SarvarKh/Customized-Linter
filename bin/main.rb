@@ -1,5 +1,6 @@
 # JS linter class with multiple linter check methods
 require 'cli-colorize'
+require_relative '../lib/indentation'
 
 class JSLinter
   def initialize(file)
@@ -7,15 +8,17 @@ class JSLinter
     puts 'JS_Linter is being initialized... '
     @arr_file = File.foreach(@file).to_a
   end
+  
+  include Indentation
 
-  # check for errors in function
-  def checker_indentation
-    @arr_file.each_with_index do |str, index|
-      if str[0, 1].match(/\S/) && str.match('  ')
-        puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Error: Redundant space].'.red
-      end
-    end
-  end
+  # # check for errors in function
+  # def checker_indentation
+  #   @arr_file.each_with_index do |str, index|
+  #     if str[0, 1].match(/\S/) && str.match('  ')
+  #       puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Error: Redundant space].'.red
+  #     end
+  #   end
+  # end
 
   def checker_indentation_end
     @arr_file.each_with_index do |str, index|
@@ -59,7 +62,7 @@ class JSLinter
 
   # process the linter test
   def process
-    checker_indentation
+    checker_indentation(@arr_file)
     checker_indentation_end
     checker_function_name
     checker_parentheses_function
