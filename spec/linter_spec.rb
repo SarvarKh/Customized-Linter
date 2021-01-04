@@ -11,4 +11,10 @@ describe JSLinter do
                                             "  return p1 * p2; \n", "}\n"])
     end
   end
+
+  describe 'checker_indentation' do
+    it 'returns [Error: Redundant space] ' do
+      expect(my_jslinter.checker_indentation).to eql('[File: ./samples/javascript_test_01.js], [Line: #1], [Error: Redundant space].')
+    end
+  end
 end
