@@ -2,6 +2,7 @@
 require 'cli-colorize'
 require_relative '../lib/indentation'
 require_relative '../lib/indentation_end'
+require_relative '../lib/function_name'
 
 class JSLinter
   def initialize(file)
@@ -12,22 +13,7 @@ class JSLinter
   
   include Indentation
   include IndentationEnd
-
-  # def checker_indentation_end
-  #   @arr_file.each_with_index do |str, index|
-  #     if str[str.length - 2] == ' '
-  #       puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Error: Extra space at the end of the line].'.red
-  #     end
-  #   end
-  # end
-
-  def checker_function_name
-    @arr_file.each_with_index do |str, index|
-      if str.match(/function/) && str.match(/_/)
-        puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Style Error: Prefer CamelCase over snake_case].'.red
-      end
-    end
-  end
+  include FunctionName
 
   def checker_parentheses_function
     @arr_file.each_with_index do |str, index|
