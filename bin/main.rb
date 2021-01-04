@@ -3,6 +3,7 @@ require 'cli-colorize'
 require_relative '../lib/indentation'
 require_relative '../lib/indentation_end'
 require_relative '../lib/function_name'
+require_relative '../lib/parentheses_function'
 
 class JSLinter
   def initialize(file)
@@ -14,14 +15,7 @@ class JSLinter
   include Indentation
   include IndentationEnd
   include FunctionName
-
-  def checker_parentheses_function
-    @arr_file.each_with_index do |str, index|
-      if str.match(/function/) && !str.match(/[()]/)
-        puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Error: Missing parentheses].'.red
-      end
-    end
-  end
+  include ParenthesesFunction
 
   def checker_open_curlybrace_function
     @arr_file.each_with_index do |str, index|
@@ -41,8 +35,8 @@ class JSLinter
 
   # process the linter test
   def process
-    checker_indentation(@arr_file)
-    checker_indentation_end(@arr_file)
+    checker_indentation
+    checker_indentation_end
     checker_function_name
     checker_parentheses_function
     checker_open_curlybrace_function
