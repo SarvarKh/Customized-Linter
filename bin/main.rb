@@ -4,6 +4,7 @@ require_relative '../lib/indentation'
 require_relative '../lib/indentation_end'
 require_relative '../lib/function_name'
 require_relative '../lib/parentheses_function'
+require_relative '../lib/open_curlybrace_function'
 
 class JSLinter
   def initialize(file)
@@ -16,14 +17,9 @@ class JSLinter
   include IndentationEnd
   include FunctionName
   include ParenthesesFunction
+  include OpenCurlybrace
 
-  def checker_open_curlybrace_function
-    @arr_file.each_with_index do |str, index|
-      if str.match(/function/) && !str.match(/[{]/)
-        puts "[File: #{@file}], " + "[Line: ##{index + 1}], ".blue + '[Error: Missing opening curly brace].'.red
-      end
-    end
-  end
+
 
   def checker_close_curlybrace_function
     @arr_file.each_with_index do |str, index|
