@@ -1,14 +1,14 @@
-# JS linter class with multiple linter check methods
 require 'cli-colorize'
 require_relative '../lib/error_scanner'
 
+# JS linter class with multiple linter check methods
 class JSLinter
   def initialize(file)
     @file = file
     puts 'JS_Linter is being initialized... '
     @error_scanner = ErrorScanner.new(@file)
   end
-  
+
   # process the linter test
   def process
     @error_scanner.checker_indentation
