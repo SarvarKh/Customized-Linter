@@ -1,7 +1,7 @@
 require_relative '../lib/error_scanner.rb'
 
 describe ErrorScanner do
-  source_file = ["function my_function   \n", "  console.log(\"some random text, bla bla bla\");\n", "  return p1 * p2; \n", "\n"]
+  source_file = './samples/javascript_test_01.js'
   error_scanner = ErrorScanner.new(source_file)
 
   describe 'checker_indentation' do
