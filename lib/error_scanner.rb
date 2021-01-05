@@ -9,20 +9,18 @@ class ErrorScanner
     @arr_file.each_with_index do |str, index|
       next unless str[0, 1].match(/\S/) && str.match('  ')
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Redundant space]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Redundant space]."
     end
+    @error
   end
 
   def checker_indentation_end
     @arr_file.each_with_index do |str, index|
       next unless str[str.length - 2] == ' '
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Extra space at the end of the line]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Extra space at the end of the line]."
     end
+    @error
   end
 
   def checker_function_name

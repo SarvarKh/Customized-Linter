@@ -11,8 +11,8 @@ class JSLinter
 
   # process the linter test
   def process
-    @error_scanner.checker_indentation
-    @error_scanner.checker_indentation_end
+    puts @error_scanner.checker_indentation
+    puts @error_scanner.checker_indentation_end
     @error_scanner.checker_function_name
     @error_scanner.checker_parentheses_function
     @error_scanner.checker_open_curlybrace_function
