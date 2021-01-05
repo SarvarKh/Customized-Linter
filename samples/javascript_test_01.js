@@ -1,4 +1,4 @@
-function myFunction (p1,p2){
+function my_function   
   console.log("some random text, bla bla bla");
-  return p1 * p2;
-}
+  return p1 * p2; 
+
