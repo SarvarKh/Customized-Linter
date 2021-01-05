@@ -41,7 +41,11 @@ Please Note that you must have Git installed on your PC, this can be done [here]
 2. Open/navigate to the project directory in your terminal
 3. Type main.rb and include the file's location and its title that need to be scanned for Linter errors in your terminal.
 For instance from your root directory: `ruby ./bin/main.rb ./samples/javascript_test_01.js`.
-4. You must see Linter errors in your terminal.
+4. You must see Linter errors in your terminal, like shown below:
+
+<div align="center">
+  <img src="capture.png?raw=true"/>
+</div>
 
 ## How to run RSpec test?
 
