@@ -13,8 +13,8 @@ class JSLinter
   def process
     puts @error_scanner.checker_indentation
     puts @error_scanner.checker_indentation_end
-    @error_scanner.checker_function_name
-    @error_scanner.checker_parentheses_function
+    puts @error_scanner.checker_function_name
+    puts @error_scanner.checker_parentheses_function
     @error_scanner.checker_open_curlybrace_function
     @error_scanner.checker_close_curlybrace_function
   end

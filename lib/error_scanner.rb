@@ -27,20 +27,18 @@ class ErrorScanner
     @arr_file.each_with_index do |str, index|
       next unless str.match(/function/) && str.match(/_/)
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Style Error: Prefer CamelCase over snake_case]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Style Error: Prefer CamelCase over snake_case]."
     end
+    @error
   end
 
   def checker_parentheses_function
     @arr_file.each_with_index do |str, index|
       next unless str.match(/function/) && !str.match(/[()]/)
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing parentheses]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing parentheses]."
     end
+    @error
   end
 
   def checker_open_curlybrace_function
