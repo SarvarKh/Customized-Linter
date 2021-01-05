@@ -15,8 +15,8 @@ class JSLinter
     puts @error_scanner.checker_indentation_end
     puts @error_scanner.checker_function_name
     puts @error_scanner.checker_parentheses_function
-    @error_scanner.checker_open_curlybrace_function
-    @error_scanner.checker_close_curlybrace_function
+    puts @error_scanner.checker_open_curlybrace_function
+    puts @error_scanner.checker_close_curlybrace_function
   end
 end
 

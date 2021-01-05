@@ -45,19 +45,17 @@ class ErrorScanner
     @arr_file.each_with_index do |str, index|
       next unless str.match(/function/) && !str.match(/[{]/)
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing opening curly brace]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing opening curly brace]."
     end
+    @error
   end
 
   def checker_close_curlybrace_function
     @arr_file.each_with_index do |str, index|
       next unless str.match(/function/) && !(@arr_file.any? { |n| n.match?(/[}]/) })
 
-      error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing closing curly brace]."
-      puts error
-      return error
+      @error = "[File: #{@file}], [Line: ##{index + 1}], [Error: Missing closing curly brace]."
     end
+    @error
   end
 end

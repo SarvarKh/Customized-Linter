@@ -13,7 +13,7 @@ describe ErrorScanner do
 
   describe 'checker_indentation_end' do
     it 'returns [Error: Extra space at the end of the line] ' do
-      actual = '[File: ./samples/javascript_test_01.js], [Line: #1], [Error: Extra space at the end of the line].'
+      actual = '[File: ./samples/javascript_test_01.js], [Line: #3], [Error: Extra space at the end of the line].'
       expect(error_scanner.checker_indentation_end).to eql(actual)
     end
   end
